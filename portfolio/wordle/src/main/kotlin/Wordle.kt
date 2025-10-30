@@ -4,9 +4,7 @@ package wordle
 import java.io.File
 import kotlin.random.Random
 
-fun isValid(word: String): Boolean {
-    return word.length == 5 && word.all { it.isLetter() }
-}
+fun isValid(word: String): Boolean = word.length == 5 && word.all { it.isLetter() }
 
 fun readWordList(filename: String): MutableList<String> {
     val words = mutableListOf<String>()
@@ -41,14 +39,14 @@ fun evaluateGuess(guess: String, target: String): List<Int> {
     for (i in guess.indices) {
         if (guess[i] == target[i]) {
             result[i] = 2
-            targetChars[i] = '*' 
+            targetChars[i] = '*'
         }
     }
 
     for (i in guess.indices) {
         if (result[i] == 0 && guess[i] in targetChars) {
             result[i] = 1
-            targetChars[targetChars.indexOf(guess[i])] = '*' 
+            targetChars[targetChars.indexOf(guess[i])] = '*'
         }
     }
 

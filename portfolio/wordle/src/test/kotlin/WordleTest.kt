@@ -2,11 +2,10 @@ package wordle
 
 import io.kotest.assertions.withClue
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.shouldBe
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.shouldBe
 import java.io.File
-import wordle.*
 
 @Suppress("unused")
 class WordleTest : StringSpec({
@@ -34,7 +33,7 @@ class WordleTest : StringSpec({
             WRONGWORD
             WIDER
             WIDOW
-            """.trimIndent()
+            """.trimIndent(),
         )
 
         val words = readWordList(tempFile.absolutePath)

@@ -1,12 +1,16 @@
-package wordle  
+import wordle.displayGuess
+import wordle.evaluateGuess
+import wordle.obtainGuess
+import wordle.pickRandomWord
+import wordle.readWordList
 
 fun main() {
     val words = readWordList("data/words.txt")
     val target = pickRandomWord(words)
     println("Welcome to Wordle!")
-    println("You have up to 6 attempts to guess the word.\n")
+    println("You have up to 10 attempts to guess the word.\n")
 
-    for (attempt in 1..6) {
+    for (attempt in 1..10) {
         val guess = obtainGuess(attempt)
         val matches = evaluateGuess(guess, target)
         displayGuess(guess, matches)
@@ -18,4 +22,3 @@ fun main() {
 
     println("You've run out of guesses. The word was '$target'. Better luck next time!")
 }
-
